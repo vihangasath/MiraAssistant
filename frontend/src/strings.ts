@@ -1,0 +1,28 @@
+// All traveller-facing copy in one place (English only for now; see UI-DESIGN.md §5).
+export const S = {
+  brand: "Ceylon Compass Holidays",
+  heroTitle: "Plan your Sri Lanka trip in a conversation.",
+  heroBody: "Tell Mira what you'd like to see. She shows real itineraries and prices from our tours, and passes anything custom to our team.",
+  greeting: "Hello, I'm Mira. I can show you our tours, price a day trip in under a minute, or help plan a longer holiday. What kind of trip are you thinking about?",
+  quickStarts: [
+    { label: "Day tour", text: "I'd like a day tour." },
+    { label: "Multi-day tour", text: "I'm looking for a multi-day tour." },
+    { label: "Custom trip", text: "I want to plan a custom trip." },
+  ],
+  inputLabel: "Message Mira",
+  inputPlaceholder: "e.g. Sigiriya day trip for 2 adults on 10 January",
+  send: "Send",
+  thinking: "Mira is checking our tours…",
+  hint: "Mira answers from our published tour pages and prices from our rate sheet.",
+  tripTitle: "Your trip",
+  tripEmpty: "Your trip details will appear here as we talk.",
+  staff: "Staff",
+  forget: "Forget me",
+  theme: "Theme",
+  voiceStart: "Talk to Mira",
+  voiceStop: "Stop listening",
+  voiceListening: "Listening…",
+  voiceSpeaking: "Mira is speaking…",
+  readAloudOn: "Read Mira's replies aloud",
+  readAloudOff: "Stop reading replies aloud",
+};

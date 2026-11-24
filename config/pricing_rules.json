@@ -1,0 +1,6 @@
+{
+  "_comment": "Live business-rule overrides. null = use the Settings tab of the rate workbook. Margins are gross profit on the selling price (0.30 = 30%).",
+  "margin_day": null,
+  "margin_multi": null,
+  "margin_by_tour": {}
+}

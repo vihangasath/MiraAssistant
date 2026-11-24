@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/theme.css"
+        ],
+        "createdAt": "2026-11-20T12:40:15.173Z",
+        "reason": "brief: user asked to recreate layla.ai exactly; its 'Not sure where to go' heading uses warm gradient text"
+      }
+    ]
+  }
+}

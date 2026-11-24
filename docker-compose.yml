@@ -1,0 +1,40 @@
+# One command starts everything:  docker compose up --build
+#   Mira (traveller chat)  http://localhost:8080
+#   Staff page             http://localhost:8080/staff
+#   Phoenix traces         http://localhost:6006
+services:
+  phoenix:
+    image: arizephoenix/phoenix:version-22.0.0
+    ports: ["6006:6006"]
+    volumes: ["phoenix-data:/mnt/data"]
+    environment:
+      PHOENIX_ENABLE_AUTH: "false"      # local demo only
+      PHOENIX_WORKING_DIR: /mnt/data    # traces survive a restart
+
+  api:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      MIRA_DATASET_DIR: /app/ceylon-compass-dataset
+      MIRA_DB_PATH: /app/var/mira.db
+      PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006
+      PHOENIX_UI_URL: http://localhost:6006
+    volumes:
+      - ./ceylon-compass-dataset:/app/ceylon-compass-dataset:ro   # dataset is never modified
+      - ./config:/app/config                                       # live pricing-rule changes
+      - ./var:/app/var                                             # SQLite: enquiries, drafts, profiles
+      - ./evals:/app/evals                                         # so evals can run inside the container
+    ports: ["8000:8000"]
+    depends_on: [phoenix]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      retries: 6
+
+  web:
+    build: { context: ., dockerfile: frontend/Dockerfile }
+    ports: ["8080:80"]
+    depends_on: [api]
+
+volumes:
+  phoenix-data:

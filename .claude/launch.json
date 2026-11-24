@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mira-api",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "--directory", "backend", "uvicorn", "mira.api.server:app", "--port", "8000", "--reload", "--reload-dir", "mira"],
+      "port": 8000
+    },
+    {
+      "name": "mira-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "--prefix", "frontend", "dev"],
+      "port": 5173
+    }
+  ]
+}
