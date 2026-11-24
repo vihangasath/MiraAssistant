@@ -10,3 +10,9 @@ frontend/dist/
 evals/reports/*.tmp
 .playwright-mcp/
 evals/reports/partial.jsonl
+.claude/
+.impeccable/
+*.tsbuildinfo
+research/screenshots/
+docs/checkin-day3.md
+Take-Home Assignment*
